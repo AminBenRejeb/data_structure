@@ -1,0 +1,51 @@
+ALGORITHM Somme_differents
+VAR
+    tab1 : ARRAY_OF INTEGER[n];
+    tab2 : ARRAY_OF INTEGER[m];
+    i,j,som : INTEGER;
+    found:BOOLEAN;
+
+
+BEGIN
+     
+     
+     som := 0;
+    
+     FOR i FROM 0 TO n-1   DO
+     read(tab1[i]);
+     END_FOR
+      
+      FOR j FROM 0 TO m-1   DO
+       read(tab2[j]);
+     END_FOR
+
+     FOR i FROM 0 TO n-1   DO
+      found:=false;
+     FOR j FROM 0 TO m-1   DO
+    
+        IF (tab1[i]= tab2 [j]) THEN
+           
+           found := True;
+          END_IF
+            END_FOR
+           IF (found = false) THEN
+           som := som + tab1[i];
+           END_IF
+       END_FOR
+       
+       FOR j FROM 0 TO m-1  DO 
+       found:=false;
+       FOR i FROM 0 TO n-1   DO
+         IF (tab2[j]= tab1[i]) THEN
+
+         found := True;         
+        END_IF
+       END_FOR
+       END_FOR
+
+       IF (found = false) THEN
+        som := som + tab2[j];
+       END_IF
+       write("La somme est :",som);
+
+END
